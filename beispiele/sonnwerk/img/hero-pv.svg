@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 480" role="img" aria-label="Illustration: Einfamilienhaus mit Photovoltaikanlage auf dem Dach und Sonne">
+  <rect width="640" height="480" fill="#DCE8F5"/>
+  <circle cx="520" cy="96" r="44" fill="#F5A623"/>
+  <g stroke="#F5A623" stroke-width="6" stroke-linecap="round">
+    <path d="M520 28v-14M520 164v14M452 96h-14M588 96h14M472 48l-10-10M568 144l10 10M472 144l-10 10M568 48l10-10"/>
+  </g>
+  <rect y="400" width="640" height="80" fill="#B9CFA3"/>
+  <rect x="120" y="230" width="400" height="180" fill="#F4F1EA"/>
+  <polygon points="90,240 320,90 550,240" fill="#3A4A5E"/>
+  <g fill="#12263F" stroke="#7FA6D6" stroke-width="2">
+    <rect x="218" y="172" width="64" height="26"/>
+    <rect x="286" y="172" width="64" height="26"/>
+    <rect x="354" y="172" width="64" height="26"/>
+    <rect x="218" y="202" width="64" height="26"/>
+    <rect x="286" y="202" width="64" height="26"/>
+    <rect x="354" y="202" width="64" height="26"/>
+  </g>
+  <rect x="290" y="310" width="60" height="100" fill="#8A5A3A"/>
+  <rect x="160" y="290" width="70" height="60" fill="#DCE8F5" stroke="#12263F" stroke-width="4"/>
+  <rect x="410" y="290" width="70" height="60" fill="#DCE8F5" stroke="#12263F" stroke-width="4"/>
+  <path d="M160 320h70M195 290v60M410 320h70M445 290v60" stroke="#12263F" stroke-width="3"/>
+</svg>

@@ -1,0 +1,11 @@
+{
+  "slug": "sonnwerk",
+  "branche": "Handwerker",
+  "titel": "Sonnwerk Solartechnik",
+  "startpfad": "index.html",
+  "build": null,
+  "ausgabe": ".",
+  "paket": "Basic",
+  "hinweis": "Fiktiver Elektrotechnik-Meisterbetrieb für Photovoltaik, Beispiel-Entwurf von HeViCe",
+  "screenshotWarten": 800
+}
