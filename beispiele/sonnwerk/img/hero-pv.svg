@@ -1,22 +1,32 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 480" role="img" aria-label="Illustration: Einfamilienhaus mit Photovoltaikanlage auf dem Dach und Sonne">
-  <rect width="640" height="480" fill="#DCE8F5"/>
-  <circle cx="520" cy="96" r="44" fill="#F5A623"/>
-  <g stroke="#F5A623" stroke-width="6" stroke-linecap="round">
-    <path d="M520 28v-14M520 164v14M452 96h-14M588 96h14M472 48l-10-10M568 144l10 10M472 144l-10 10M568 48l10-10"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 480" role="img" aria-label="Illustration: Einfamilienhaus mit Photovoltaikanlage, Batteriespeicher und Wallbox">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F9DC98"/><stop offset="1" stop-color="#F6EEDC"/></linearGradient>
+    <linearGradient id="pv" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#2A4670"/><stop offset=".6" stop-color="#172B4A"/><stop offset="1" stop-color="#0E1A2E"/></linearGradient>
+    <pattern id="cells" width="22" height="16" patternUnits="userSpaceOnUse"><rect width="22" height="16" fill="url(#pv)"/><path d="M22 0V16M0 16H22" stroke="#7F97BC" stroke-width="1.4"/></pattern>
+  </defs>
+  <rect width="640" height="480" fill="url(#sky)"/>
+  <path d="M60 330a260 260 0 0 1 520 0" fill="none" stroke="#111C2E" stroke-opacity=".25" stroke-width="2" stroke-dasharray="4 10"/>
+  <circle cx="505" cy="150" r="58" fill="#F3A712" fill-opacity=".25"/>
+  <circle cx="505" cy="150" r="36" fill="#F3A712"/>
+  <path d="M0 382c120-20 250-24 380-12s190 8 260 0v110H0z" fill="#D8C9A6"/>
+  <path d="M0 408c150-14 330-16 640-6v78H0z" fill="#C7B48B"/>
+  <rect x="150" y="238" width="300" height="160" fill="#FFFDF8"/>
+  <rect x="450" y="262" width="92" height="136" fill="#EFE6D4"/>
+  <path d="M130 244 300 124 470 244z" fill="#111C2E"/>
+  <path d="M450 262 470 244 560 244 542 262z" fill="#1B2A42"/>
+  <path d="M186 228 300 148 414 228z" fill="url(#cells)" stroke="#0A1322" stroke-width="3" stroke-linejoin="round"/>
+  <path d="M300 148 330 170" stroke="#fff" stroke-opacity=".35" stroke-width="3"/>
+  <g fill="#F9DC98" stroke="#111C2E" stroke-width="4">
+    <rect x="184" y="278" width="64" height="52" rx="2"/><rect x="352" y="278" width="64" height="52" rx="2"/>
+    <path d="M216 278v52M184 304h64M384 278v52M352 304h64" fill="none"/>
   </g>
-  <rect y="400" width="640" height="80" fill="#B9CFA3"/>
-  <rect x="120" y="230" width="400" height="180" fill="#F4F1EA"/>
-  <polygon points="90,240 320,90 550,240" fill="#3A4A5E"/>
-  <g fill="#12263F" stroke="#7FA6D6" stroke-width="2">
-    <rect x="218" y="172" width="64" height="26"/>
-    <rect x="286" y="172" width="64" height="26"/>
-    <rect x="354" y="172" width="64" height="26"/>
-    <rect x="218" y="202" width="64" height="26"/>
-    <rect x="286" y="202" width="64" height="26"/>
-    <rect x="354" y="202" width="64" height="26"/>
-  </g>
-  <rect x="290" y="310" width="60" height="100" fill="#8A5A3A"/>
-  <rect x="160" y="290" width="70" height="60" fill="#DCE8F5" stroke="#12263F" stroke-width="4"/>
-  <rect x="410" y="290" width="70" height="60" fill="#DCE8F5" stroke="#12263F" stroke-width="4"/>
-  <path d="M160 320h70M195 290v60M410 320h70M445 290v60" stroke="#12263F" stroke-width="3"/>
+  <rect x="274" y="300" width="52" height="98" rx="2" fill="#B4532A"/>
+  <circle cx="316" cy="352" r="3.5" fill="#F3A712"/>
+  <rect x="464" y="300" width="64" height="98" fill="#DCCFB6"/>
+  <path d="M464 318h64M464 336h64M464 354h64M464 372h64" stroke="#C5B596" stroke-width="2"/>
+  <rect x="428" y="316" width="16" height="30" rx="4" fill="#111C2E"/>
+  <rect x="432" y="322" width="8" height="5" rx="1" fill="#F3A712"/>
+  <path d="M436 346c0 18 10 22 20 28" stroke="#111C2E" stroke-width="3" fill="none" stroke-linecap="round"/>
+  <rect x="160" y="352" width="26" height="46" rx="4" fill="#FFFDF8" stroke="#111C2E" stroke-width="3"/>
+  <path d="M170 364l-4 10h8l-4 10" stroke="#C97C00" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
 </svg>

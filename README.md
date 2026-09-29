@@ -9,6 +9,7 @@ Basis-SEO inkl. LocalBusiness-JSON-LD. Keine Animationen, keine Galerie, keine T
 | Pfad | Zweck |
 |---|---|
 | `beispiele/sonnwerk/` | Die Seite (statisches HTML/CSS/JS, keine externen Ressourcen) inkl. `beispiel.json` |
+| `beispiele/sonnwerk/fonts/` | Lokale Schriften (Bricolage Grotesque, Public Sans, IBM Plex Mono, alle SIL Open Font License, Lizenzen liegen bei) |
 | `public/beispiele/sonnwerk/desktop.webp`, `mobile.webp` | Screenshots (1440×900 / 390×844) für Hero und Projektübersicht |
 
 Der Ordner `beispiele/sonnwerk/` folgt der Konvention aus `docs/06-beispielseiten.md` im HeViCe-Repo
