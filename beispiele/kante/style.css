@@ -230,11 +230,6 @@ footer a:hover{color:var(--ochsenblut)}
 .fussnote button:hover{color:var(--ochsenblut)}
 @media (max-width: 900px){footer .raster{grid-template-columns:1fr;gap:28px}}
 
-.cookie{position:fixed;left:16px;right:16px;bottom:16px;z-index:50;max-width:500px;margin-left:auto;background:var(--porzellan);border:2px solid var(--flasche);border-radius:18px;box-shadow:6px 6px 0 var(--flasche);padding:22px 24px}
-.cookie[hidden]{display:none}
-.cookie h2{font-size:26px;margin-bottom:8px}
-.cookie p{font-size:15px;color:var(--flasche-leise);margin-bottom:16px}
-.cookie .btn{min-height:44px;font-size:15px;padding:0 18px}
 
 dialog{border:2px solid var(--flasche);border-radius:18px;padding:0;max-width:680px;width:calc(100% - 32px);background:var(--porzellan);color:var(--flasche)}
 dialog::backdrop{background:rgba(30,58,51,.55)}

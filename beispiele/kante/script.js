@@ -1,4 +1,4 @@
-/* Kante Beispielseite: Menü, Cookie-Hinweis mit Karten-Zustimmung, Galerie-Großansicht,
+/* Kante Beispielseite: Menü, Karten-Platzhalter, Galerie-Großansicht,
    Terminformular (Demo, sendet nichts). */
 (function () {
   "use strict";
@@ -16,9 +16,7 @@
     document.addEventListener("keydown", function (e) { if (e.key === "Escape") menue(false); });
   }
 
-  /* Cookie-Hinweis: nur technisch notwendig, Karte erst nach Zustimmung */
-  var cookie = document.getElementById("cookie");
-  var KEY = "kante-cookie";
+  /* Karte erst nach Klick (Platzhalter, lädt nichts). Der Cookie-Hinweis kommt auf hevice.de vom Build (scripts/beispiele.mjs). */
   var karte = document.getElementById("karte");
   function karteZeigen() {
     if (!karte) return;
@@ -27,19 +25,6 @@
     s.textContent = "Hier würde jetzt die Karte erscheinen. In der Vorschau wird nichts geladen.";
     karte.appendChild(s);
   }
-  var gespeichert = null;
-  try { gespeichert = localStorage.getItem(KEY); } catch (e) {}
-  if (!gespeichert) cookie.hidden = false; else if (gespeichert === "alle") karteZeigen();
-  document.querySelectorAll("[data-cookie]").forEach(function (b) {
-    b.addEventListener("click", function () {
-      var wahl = b.dataset.cookie;
-      try { localStorage.setItem(KEY, wahl); } catch (e) {}
-      cookie.hidden = true;
-      if (wahl === "alle") karteZeigen();
-    });
-  });
-  var oeffnen = document.getElementById("cookie-oeffnen");
-  if (oeffnen) oeffnen.addEventListener("click", function () { cookie.hidden = false; });
   var karteKnopf = document.getElementById("karte-knopf");
   if (karteKnopf) karteKnopf.addEventListener("click", karteZeigen);
   var google = document.getElementById("google-link");
