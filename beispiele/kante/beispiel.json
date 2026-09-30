@@ -1,0 +1,11 @@
+{
+  "slug": "kante",
+  "branche": "Barbershop",
+  "titel": "Kante Barbershop",
+  "startpfad": "index.html",
+  "build": null,
+  "ausgabe": ".",
+  "paket": "Standard",
+  "hinweis": "Fiktiver Barbershop, Beispiel-Entwurf von Hevice",
+  "screenshotWarten": 800
+}

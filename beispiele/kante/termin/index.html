@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="de" class="no-js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Termin anfragen – Kante Barbershop (Beispielseite)</title>
+<meta name="description" content="Terminanfrage bei Kante: Formular, Öffnungszeiten und Adresse. Fiktive Beispielseite, es wird nichts verschickt.">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#1E3A33">
+<link rel="icon" href="../img/favicon.svg" type="image/svg+xml">
+<link rel="preload" href="../fonts/limelight-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<script>document.documentElement.className='js';</script>
+<meta property="og:type" content="website">
+<meta property="og:locale" content="de_DE">
+<meta property="og:site_name" content="Kante Barbershop">
+<meta property="og:title" content="Termin anfragen – Kante Barbershop (Beispielseite)">
+<meta property="og:description" content="Terminanfrage bei Kante: Formular, Öffnungszeiten und Adresse. Fiktive Beispielseite, es wird nichts verschickt.">
+<meta property="og:url" content="https://hevice.de/beispiele/kante/termin/">
+<meta property="og:image" content="https://hevice.de/beispiele/kante/desktop.webp">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body><a class="skip" href="#inhalt">Zum Inhalt springen</a>
+
+<header class="kopf">
+  <div class="wrap">
+    <a class="logo" href="../" aria-label="Kante Barbershop – Startseite">
+      <svg width="22" height="50" viewBox="0 0 22 50" aria-hidden="true"><defs><pattern id="saeule" width="22" height="14" patternUnits="userSpaceOnUse" patternTransform="skewY(-30)"><rect width="22" height="14" fill="#FBFAF7"/><rect width="22" height="4.5" fill="#7A1F1F"/><rect y="7" width="22" height="4.5" fill="#1E3A33"/></pattern></defs><rect x="4" y="6" width="14" height="38" rx="2" fill="url(#saeule)" stroke="#1E3A33" stroke-width="1.5"/><rect x="2" y="1" width="18" height="6" rx="3" fill="#B8913A"/><rect x="2" y="43" width="18" height="6" rx="3" fill="#B8913A"/></svg>
+      <span><b>KANTE</b><small>Barbershop in Musterstadt</small></span>
+    </a>
+    <button class="menue-knopf" type="button" aria-label="Menü öffnen" aria-expanded="false" aria-controls="hauptnav">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 8h16M4 16h16"/></svg>
+    </button>
+    <nav class="nav" id="hauptnav" aria-label="Hauptnavigation">
+      <a href="../">Start</a>
+      <a href="../leistungen/">Leistungen</a>
+      <a href="../galerie/">Galerie</a>
+      <a href="../team/">Team</a>
+      <a class="btn" href="../termin/" aria-current="page">Termin anfragen</a>
+    </nav>
+  </div>
+</header>
+
+<main id="inhalt">
+<section class="seitenkopf">
+  <div class="wrap">
+    <h1>TERMIN</h1>
+    <p>Schicken Sie uns Ihren Wunschtermin, wir melden uns zur Bestätigung. Schneller geht es telefonisch.</p>
+  </div>
+</section>
+<div class="schachband" role="presentation"></div>
+<section class="abschnitt">
+  <div class="wrap kontakt-raster">
+    <div id="formular-bereich">
+      <form id="formular" novalidate>
+        <h2>Ihre Anfrage</h2>
+        <div class="feld"><label for="name">Name</label><input id="name" name="name" type="text" autocomplete="name" aria-required="true"></div>
+        <div class="feld"><label for="erreichbar">Telefon oder E-Mail</label><input id="erreichbar" name="erreichbar" type="text" autocomplete="tel" aria-required="true"></div>
+        <div class="feld"><label for="leistung">Leistung</label>
+          <select id="leistung" name="leistung"><option>Weiß ich noch nicht</option><option>Haarschnitt</option><option>Fade</option><option>Maschinenschnitt</option><option>Kinderschnitt</option><option>Bart trimmen</option><option>Nassrasur</option><option>Bart und Schnitt</option><option>Vater und Sohn</option><option>Hochzeit</option></select></div>
+        <div class="feld"><label for="barbier">Wunsch-Barbier</label>
+          <select id="barbier" name="barbier"><option>Egal</option><option>Ben</option><option>Tom</option><option>Jonas</option></select></div>
+        <div class="feld breit"><label for="wunsch">Wunschtermin</label><input id="wunsch" name="wunsch" type="text" placeholder="z. B. Freitag nach 17 Uhr"></div>
+        <div class="check"><input id="ds" name="datenschutz" type="checkbox" aria-required="true"><label for="ds">Ich habe die <a href="../datenschutz/">Datenschutzerklärung</a> gelesen und bin einverstanden, dass meine Angaben zur Bearbeitung der Anfrage genutzt werden.</label></div>
+        <p class="fehler" id="fehler" role="alert" hidden></p>
+        <button class="btn" type="submit">Anfrage senden</button>
+      </form>
+    </div>
+    <div class="info">
+      <div class="infokarte">
+        <h2>Öffnungszeiten</h2>
+        <table>
+          <tr><th scope="row">Montag</th><td class="leise">geschlossen</td></tr>
+          <tr><th scope="row">Dienstag bis Freitag</th><td>10 bis 19 Uhr</td></tr>
+          <tr><th scope="row">Samstag</th><td>9 bis 15 Uhr</td></tr>
+          <tr><th scope="row">Sonntag</th><td class="leise">geschlossen</td></tr>
+        </table>
+      </div>
+      <div class="infokarte">
+        <h2>Der Laden</h2>
+        <p>Musterstraße 7, 12345 Musterstadt</p>
+        <p style="margin:0"><a href="tel:+491234987650">01234 987650</a><br><a href="mailto:hallo@kante.example">hallo@kante.example</a></p>
+      </div>
+      <a class="google" href="#" id="google-link">
+        <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#7A1F1F" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>
+        <div><b>Kante auf Google</b><span>Route, Öffnungszeiten und Bewertungen im Google-Unternehmensprofil</span></div>
+      </a>
+      <div class="karte" id="karte">
+        <span>Die Karte wird erst geladen, wenn Sie zustimmen.</span>
+        <button class="btn linie" type="button" id="karte-knopf">Karte anzeigen</button>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<div class="schachband" role="presentation"></div>
+<footer>
+  <div class="wrap innen">
+    <div class="raster">
+      <div><a class="logo" href="../" aria-label="Kante Barbershop – Startseite"><span><b>KANTE</b></span></a><p style="margin-top:12px">Barbershop, Musterstraße 7, 12345 Musterstadt</p><p><a href="tel:+491234987650">01234 987650</a></p></div>
+      <div><h2>Geöffnet</h2><p>Di bis Fr 10 bis 19 Uhr<br>Sa 9 bis 15 Uhr<br>Mo und So geschlossen</p></div>
+      <div><h2>Seiten</h2><ul><li><a href="../leistungen/">Leistungen</a></li><li><a href="../galerie/">Galerie</a></li><li><a href="../team/">Team</a></li><li><a href="../termin/">Termin anfragen</a></li></ul></div>
+    </div>
+    <div class="fussnote">
+      <span>Beispielseite von Hevice. Alle Angaben sind erfunden.</span>
+      <span><a href="../impressum/">Impressum</a> &nbsp; <a href="../datenschutz/">Datenschutz</a></span>
+    </div>
+  </div>
+</footer>
+
+
+<script src="../script.js" defer></script>
+</body>
+</html>

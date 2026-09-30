@@ -1,0 +1,247 @@
+/* Kante Barbershop · Standard-Beispiel · keine Animationen, nur Hover-Zustände */
+@font-face { font-family: "Limelight"; src: url("fonts/limelight-latin-400-normal.woff2") format("woff2"); font-weight: 400; font-display: swap; }
+@font-face { font-family: "Bodoni Moda"; src: url("fonts/bodoni-moda-latin-700-normal.woff2") format("woff2"); font-weight: 700; font-style: normal; font-display: swap; }
+@font-face { font-family: "Bodoni Moda"; src: url("fonts/bodoni-moda-latin-500-italic.woff2") format("woff2"); font-weight: 500; font-style: italic; font-display: swap; }
+@font-face { font-family: "Karla"; src: url("fonts/karla-latin-400-normal.woff2") format("woff2"); font-weight: 400; font-display: swap; }
+@font-face { font-family: "Karla"; src: url("fonts/karla-latin-500-normal.woff2") format("woff2"); font-weight: 500; font-display: swap; }
+@font-face { font-family: "Karla"; src: url("fonts/karla-latin-700-normal.woff2") format("woff2"); font-weight: 700; font-display: swap; }
+
+:root{
+  --fliese:#D3E6DC; --fuge:#BFD6CA; --porzellan:#FBFAF7;
+  --flasche:#1E3A33; --flasche-leise:#4A5F58;
+  --ochsenblut:#7A1F1F; --ochsenblut-dunkel:#5C1616;
+  --gold:#B8913A; --gold-hell:#E2C27A; --linie:#CFD9D3;
+  --schild:'Limelight','Bodoni Moda',Georgia,serif;
+  --titel:'Bodoni Moda',Didot,Georgia,serif;
+  --text:'Karla','Segoe UI',system-ui,sans-serif;
+  --schach:conic-gradient(var(--flasche) 25%, var(--porzellan) 0 50%, var(--flasche) 0 75%, var(--porzellan) 0) 0 0 / 28px 28px;
+  --kacheln:linear-gradient(var(--fuge) 2px, transparent 2px) 0 0 / 100% 44px, linear-gradient(90deg, var(--fuge) 2px, transparent 2px) 0 0 / 88px 100%, var(--fliese);
+  color-scheme:light;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-padding-top:100px}
+body{margin:0;background:var(--porzellan);color:var(--flasche);font-family:var(--text);font-size:17px;line-height:1.65;-webkit-font-smoothing:antialiased}
+img,svg{max-width:100%}
+a{color:var(--ochsenblut)}
+a:hover{color:var(--ochsenblut-dunkel)}
+:focus-visible{outline:3px solid var(--ochsenblut);outline-offset:3px;border-radius:4px}
+.wrap{width:min(1140px, 100% - 40px);margin-inline:auto}
+h1,h2,h3{font-family:var(--titel);font-weight:700;line-height:1.05;margin:0;letter-spacing:-0.01em}
+p{margin:0 0 16px}
+.leise{color:var(--flasche-leise)}
+.skip{position:absolute;left:-9999px;top:8px;background:var(--ochsenblut);color:#fff;padding:8px 14px;font-weight:700;z-index:100}
+.skip:focus{left:8px}
+
+/* Kopf */
+.kopf{position:sticky;top:0;z-index:30;background:var(--porzellan);border-bottom:1px solid var(--linie)}
+.kopf .wrap{display:flex;align-items:center;justify-content:space-between;min-height:82px;gap:24px;flex-wrap:wrap}
+.logo{text-decoration:none;color:var(--flasche);display:flex;align-items:center;gap:14px}
+.logo:hover{color:var(--flasche)}
+.logo svg{flex-shrink:0}
+.logo b{font-family:var(--schild);font-weight:400;font-size:30px;letter-spacing:0.08em;line-height:1;display:block}
+.logo small{display:block;font-family:var(--titel);font-style:italic;font-weight:500;font-size:15px;color:var(--flasche-leise);margin-top:2px}
+.nav{display:flex;align-items:center;gap:2px}
+.nav a{color:var(--flasche);text-decoration:none;font-weight:500;font-size:16px;padding:10px 14px}
+.nav a:hover{color:var(--ochsenblut)}
+.nav a[aria-current="page"]{color:var(--ochsenblut);font-weight:700;background:linear-gradient(var(--gold),var(--gold)) center bottom 4px / 24px 2px no-repeat}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:50px;padding:0 26px;border-radius:999px;font-weight:700;font-size:16px;text-decoration:none;border:2px solid var(--ochsenblut);background:var(--ochsenblut);color:#fff;cursor:pointer;font-family:var(--text);letter-spacing:0.01em}
+.btn:hover{background:var(--ochsenblut-dunkel);border-color:var(--ochsenblut-dunkel);color:#fff}
+.btn.linie{background:transparent;color:var(--flasche);border-color:var(--flasche)}
+.btn.linie:hover{background:var(--flasche);color:#fff}
+.nav .btn{margin-left:12px;color:#fff;background-image:none}
+.nav .btn:hover{color:#fff}
+.nav .btn[aria-current="page"]{background:var(--ochsenblut-dunkel);border-color:var(--ochsenblut-dunkel);font-weight:700}
+.menue-knopf{display:none;width:48px;height:48px;border-radius:50%;border:2px solid var(--flasche);background:transparent;color:var(--flasche);cursor:pointer;align-items:center;justify-content:center}
+@media (max-width: 900px){
+  .logo small{display:none}
+  .js .menue-knopf{display:inline-flex}
+  .nav{flex-direction:column;align-items:stretch;width:100%;padding:0 0 16px}
+  .js .nav{display:none;position:absolute;left:0;right:0;top:100%;background:var(--porzellan);border-bottom:1px solid var(--linie);padding:10px 20px 20px}
+  .js .nav.offen{display:flex}
+  .nav a{padding:14px 6px;border-bottom:1px solid var(--linie)}
+  .nav a[aria-current="page"]{background:none}
+  .nav .btn{margin:14px 0 0;border-bottom:2px solid var(--ochsenblut)}
+}
+
+.schachband{height:28px;background:var(--schach)}
+.abschnitt{padding:92px 0}
+@media (max-width: 900px){.abschnitt{padding:60px 0}}
+
+/* Hero: Fliesenwand mit Schaufensterschrift */
+.hero{background:var(--kacheln);padding:56px 0 0;overflow:hidden}
+.bogen{display:block;width:min(820px, 100%);height:auto;margin:0 auto -6%}
+@media (min-width: 900px){.bogen{margin-bottom:-56px}}
+.bogen-unter{text-align:center;font-family:var(--titel);font-style:italic;font-weight:500;font-size:clamp(19px, 2.2vw, 26px);color:var(--flasche);margin:0 0 40px}
+.hero-raster{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:48px;align-items:end}
+.plakette{background:var(--porzellan);border:2px solid var(--flasche);border-radius:18px;padding:36px 36px 32px;margin-bottom:56px;position:relative;box-shadow:6px 6px 0 var(--flasche)}
+.plakette::before{content:"";position:absolute;inset:7px;border:1px solid var(--gold);border-radius:12px;pointer-events:none}
+.plakette h1{font-size:clamp(34px, 4.2vw, 52px);margin-bottom:16px}
+.plakette p{color:var(--flasche-leise);margin-bottom:26px;max-width:44ch}
+.aktionen{display:flex;flex-wrap:wrap;gap:12px;position:relative}
+.spiegel{position:relative;padding:14px 14px 0;background:linear-gradient(135deg,#8A5A36,#5E3A22);border-radius:260px 260px 0 0}
+.spiegel::before{content:"";position:absolute;inset:6px 6px 0;border:2px solid var(--gold-hell);border-bottom:0;border-radius:254px 254px 0 0;pointer-events:none;opacity:.7}
+@media (max-width: 900px){
+  .hero{padding-top:36px}
+  .bogen-unter{margin-bottom:28px}
+  .hero-raster{grid-template-columns:1fr;gap:28px}
+  .plakette{margin-bottom:0;padding:28px 24px 26px}
+  .spiegel{width:min(420px, 100%);margin:0 auto}
+}
+
+/* Leistungs-Emailleschild */
+.schild{border-radius:22px;padding:10px;background:var(--ochsenblut);position:relative}
+.schild-innen{background:var(--porzellan);border-radius:14px;padding:52px 56px 44px;border:2px solid var(--gold);outline:2px solid var(--porzellan);outline-offset:-8px}
+.schild .kopf-schild{text-align:center;margin-bottom:34px}
+.schild h2{font-family:var(--schild);font-weight:400;font-size:clamp(34px, 5vw, 58px);letter-spacing:0.06em;color:var(--ochsenblut)}
+.schild .kopf-schild p{font-family:var(--titel);font-style:italic;font-weight:500;font-size:19px;color:var(--flasche-leise);margin:6px 0 0}
+.posten-liste{display:grid;grid-template-columns:1fr 1fr;gap:0 56px}
+.posten{padding:14px 0}
+.posten .zeile{display:flex;align-items:baseline;gap:10px}
+.posten b.preis{font-family:var(--titel);font-weight:700;font-size:22px;color:var(--ochsenblut);white-space:nowrap}
+.posten>span{display:block;font-size:15px;color:var(--flasche-leise)}
+.posten strong{font-family:var(--titel);font-weight:700;font-size:22px;white-space:nowrap}
+.posten i{flex:1;border-bottom:2px dotted #9FB5AB;transform:translateY(-6px);min-width:24px}
+.schild .unten{text-align:center;margin-top:30px}
+@media (max-width: 900px){.schild-innen{padding:36px 20px 30px}.posten-liste{grid-template-columns:1fr}}
+
+/* Rasur-Abschnitt und Polaroids */
+.duo{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:64px;align-items:center}
+.polaroid{background:#fff;padding:14px 14px 56px;box-shadow:0 18px 40px -20px rgba(30,58,51,.45);transform:rotate(-2deg);position:relative;margin:0}
+.polaroid figcaption{position:absolute;left:0;right:0;bottom:14px;text-align:center;font-family:var(--titel);font-style:italic;font-weight:500;font-size:19px;color:var(--flasche-leise)}
+.duo h2{font-size:clamp(38px, 4.6vw, 58px);margin-bottom:20px}
+.duo p{color:var(--flasche-leise);max-width:46ch}
+.messer{display:flex;align-items:center;gap:14px;margin:6px 0 28px;color:var(--gold)}
+.messer span{height:1px;flex:1;max-width:120px;background:var(--gold)}
+@media (max-width: 900px){.duo{grid-template-columns:1fr;gap:40px}.polaroid{transform:rotate(-1.5deg)}}
+
+.fotowand{background:var(--kacheln)}
+.kopfzeile{display:flex;justify-content:space-between;align-items:end;gap:24px;margin-bottom:40px;flex-wrap:wrap}
+.kopfzeile h2{font-size:clamp(38px, 4.6vw, 58px)}
+.kopfzeile a{font-weight:700}
+.fotos{display:grid;grid-template-columns:repeat(4, minmax(0,1fr));gap:22px}
+.fotos figure{margin:0;background:#fff;padding:10px 10px 40px;box-shadow:0 12px 28px -18px rgba(30,58,51,.5);position:relative}
+.fotos figure:nth-child(odd){transform:rotate(-1.6deg)}
+.fotos figure:nth-child(even){transform:rotate(1.4deg)}
+.fotos figcaption{position:absolute;left:0;right:0;bottom:9px;text-align:center;font-family:var(--titel);font-style:italic;font-weight:500;font-size:16px;color:var(--flasche-leise)}
+@media (max-width: 900px){.fotos{grid-template-columns:repeat(2, minmax(0,1fr));gap:16px}}
+
+/* Unterseiten-Kopf */
+.seitenkopf{background:var(--kacheln);padding:64px 0 60px;text-align:center}
+.seitenkopf h1{font-family:var(--schild);font-weight:400;font-size:clamp(46px, 7vw, 88px);letter-spacing:0.06em;color:var(--flasche);text-shadow:3px 3px 0 var(--gold-hell)}
+.seitenkopf p{font-family:var(--titel);font-style:italic;font-weight:500;font-size:clamp(18px, 2vw, 22px);color:var(--flasche);max-width:48ch;margin:12px auto 0}
+
+/* Leistungen */
+.tafeln{display:grid;grid-template-columns:repeat(3, minmax(0,1fr));gap:28px;align-items:start}
+.tafel{border-radius:18px;padding:8px;background:var(--ochsenblut)}
+.tafel-innen{background:var(--porzellan);border-radius:12px;border:1.5px solid var(--gold);padding:30px 26px 22px}
+.tafel-kopf{display:flex;align-items:center;gap:12px;margin-bottom:10px}
+.tafel-kopf svg{color:var(--ochsenblut);flex-shrink:0}
+.tafel h2{font-family:var(--schild);font-weight:400;font-size:32px;letter-spacing:0.05em;color:var(--ochsenblut)}
+.eintrag{padding:14px 0;border-top:1px dotted #9FB5AB}
+.eintrag:first-of-type{border-top:0}
+.eintrag strong{display:flex;justify-content:space-between;align-items:baseline;gap:12px;font-family:var(--titel);font-weight:700;font-size:20px}
+.eintrag .preis{color:var(--ochsenblut);white-space:nowrap}
+.eintrag span{font-size:15px;color:var(--flasche-leise)}
+.bilderpaar{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-bottom:64px}
+.bilderpaar .polaroid:nth-child(2){transform:rotate(2deg)}
+.hinweisbox{margin-top:56px;text-align:center;background:var(--fliese);border-radius:18px;padding:32px 24px}
+.hinweisbox p{font-family:var(--titel);font-style:italic;font-weight:500;font-size:21px;margin:0 0 18px}
+@media (max-width: 900px){.tafeln{grid-template-columns:1fr}.bilderpaar{grid-template-columns:1fr;gap:36px;margin-bottom:48px}}
+
+/* Galerie */
+.galerie{display:grid;grid-template-columns:repeat(3, minmax(0,1fr));gap:30px 26px}
+.galerie button{appearance:none;border:0;background:#fff;padding:12px 12px 46px;cursor:pointer;font:inherit;color:inherit;position:relative;box-shadow:0 14px 30px -18px rgba(30,58,51,.5);display:block;text-align:left}
+.galerie button:nth-child(3n+1){transform:rotate(-1.8deg)}
+.galerie button:nth-child(3n+2){transform:rotate(1.2deg)}
+.galerie button:nth-child(3n){transform:rotate(-0.8deg)}
+.galerie button:hover{box-shadow:0 14px 30px -14px rgba(122,31,31,.55)}
+.galerie .unter{position:absolute;left:0;right:0;bottom:12px;text-align:center;font-family:var(--titel);font-style:italic;font-weight:500;font-size:18px;color:var(--flasche-leise)}
+@media (max-width: 900px){.galerie{grid-template-columns:repeat(2, minmax(0,1fr));gap:22px 16px}.galerie .unter{font-size:15px}}
+
+/* Team als Meisterbriefe */
+.team{display:grid;grid-template-columns:repeat(3, minmax(0,1fr));gap:30px}
+.brief{background:var(--porzellan);border:2px solid var(--gold);outline:6px double var(--gold);outline-offset:6px;padding:26px 24px 28px;text-align:center;margin:12px}
+.brief h2{font-family:var(--schild);font-weight:400;font-size:28px;letter-spacing:0.04em}
+.brief .rolle{font-family:var(--titel);font-style:italic;font-weight:500;font-size:18px;color:var(--ochsenblut);margin:4px 0 12px}
+.brief p{font-size:16px;color:var(--flasche-leise);margin:0}
+.brief .rolle{margin:4px 0 12px}
+@media (max-width: 900px){.team{grid-template-columns:1fr;gap:36px}}
+
+/* Termin */
+.kontakt-raster{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,0.85fr);gap:48px;align-items:start}
+form{background:#fff;border:2px solid var(--flasche);border-radius:18px;box-shadow:6px 6px 0 var(--flasche);padding:34px;display:grid;grid-template-columns:1fr 1fr;gap:18px}
+form h2{grid-column:1 / -1;font-size:38px}
+.feld{display:flex;flex-direction:column;gap:6px}
+.feld.breit{grid-column:1 / -1}
+label{font-weight:700;font-size:15px}
+input[type=text],select,textarea{font:inherit;font-size:16px;color:var(--flasche);background:var(--porzellan);border:1.5px solid #9FB5AB;border-radius:10px;padding:12px 14px;min-height:50px;width:100%}
+input[aria-invalid="true"]{border-color:#A3123A}
+.check{grid-column:1 / -1;display:flex;gap:12px;align-items:flex-start;font-size:14px;color:var(--flasche-leise)}
+.check input{width:22px;height:22px;margin:1px 0 0;accent-color:var(--ochsenblut);flex-shrink:0}
+.check label{font-weight:400;font-size:14px}
+form .btn{grid-column:1 / -1;min-height:54px}
+.fehler{grid-column:1 / -1;margin:0;color:#A3123A;font-size:14px;font-weight:700}
+.fehler[hidden]{display:none}
+.bestaetigung{background:#fff;border:2px solid var(--flasche);border-radius:18px;box-shadow:6px 6px 0 var(--flasche);padding:36px}
+.bestaetigung h2{font-size:36px;margin-bottom:10px}
+.info{display:flex;flex-direction:column;gap:18px}
+.infokarte{background:var(--fliese);border-radius:18px;padding:24px 26px}
+.infokarte h2{font-size:26px;margin-bottom:10px}
+.infokarte p{margin:0 0 8px}
+table{width:100%;border-collapse:collapse;font-size:16px}
+th{font-weight:400;text-align:left}
+td,th{padding:8px 0;border-bottom:1px dotted #8FA89C}
+tr:last-child td,tr:last-child th{border-bottom:0}
+td:last-child{text-align:right}
+.google{display:flex;gap:14px;align-items:center;background:#fff;border:1.5px solid var(--linie);border-radius:18px;padding:18px 22px;text-decoration:none;color:var(--flasche)}
+.google:hover{border-color:var(--flasche);color:var(--flasche)}
+.google b{display:block}
+.google span{font-size:14px;color:var(--flasche-leise)}
+.karte{border-radius:18px;background:var(--kacheln);min-height:200px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;padding:24px;text-align:center;font-size:15px}
+.karte span{background:var(--porzellan);padding:6px 12px;border-radius:8px}
+.karte .btn{background:var(--porzellan)}
+.karte .btn:hover{background:var(--flasche)}
+@media (max-width: 900px){.kontakt-raster{grid-template-columns:1fr}form{grid-template-columns:1fr;padding:24px}}
+
+/* Platzhalter für Fotos */
+.platz{background:var(--kacheln);color:var(--flasche);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;text-align:center;padding:18px;width:100%}
+.platz span{background:var(--porzellan);border-radius:999px;padding:5px 14px;font-size:14px;color:var(--flasche-leise);max-width:100%}
+.spiegel .platz{aspect-ratio:458/520;border-radius:246px 246px 0 0;background:linear-gradient(160deg,#F7FAF8 0%,#E3EEE8 55%,#D3E3DA 100%)}
+.polaroid .platz{aspect-ratio:4/3}
+.fotos .platz,.galerie .platz{aspect-ratio:1/1}
+.platz.rund{width:170px;height:170px;border-radius:50%;margin:0 auto 18px;border:4px solid var(--fliese);box-shadow:0 0 0 2px var(--gold);padding:0}
+.platz.rund span{display:none}
+#grossbild .platz{aspect-ratio:4/3}
+#grossbild .platz span{font-size:16px}
+@media (max-width: 900px){.fotos .platz span,.galerie .platz span{font-size:12px;padding:4px 10px}.fotos .platz svg,.galerie .platz svg{width:34px;height:34px}}
+
+/* Fuß */
+footer{background:var(--porzellan)}
+footer .innen{padding:52px 0 36px}
+footer .raster{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:40px}
+footer .logo b{font-size:26px}
+footer h2{font-size:22px;margin-bottom:10px}
+footer p,footer li{font-size:15px;color:var(--flasche-leise);margin:0 0 6px}
+footer ul{list-style:none;margin:0;padding:0}
+footer a{color:var(--flasche)}
+footer a:hover{color:var(--ochsenblut)}
+.fussnote{margin-top:32px;padding-top:20px;border-top:1px solid var(--linie);font-size:14px;color:var(--flasche-leise);display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.fussnote button{background:none;border:0;padding:0;font:inherit;color:var(--flasche);text-decoration:underline;cursor:pointer}
+.fussnote button:hover{color:var(--ochsenblut)}
+@media (max-width: 900px){footer .raster{grid-template-columns:1fr;gap:28px}}
+
+
+dialog{border:2px solid var(--flasche);border-radius:18px;padding:0;max-width:680px;width:calc(100% - 32px);background:var(--porzellan);color:var(--flasche)}
+dialog::backdrop{background:rgba(30,58,51,.55)}
+.hinweis{background:var(--fliese);border-radius:10px;padding:12px 14px;font-size:14px;margin-bottom:18px}
+#grossbild{max-width:760px;background:#fff;border:0;padding:14px 14px 0}
+#grossbild .unterzeile{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:14px 4px}
+#grossbild .unterzeile span{font-family:var(--titel);font-style:italic;font-weight:500;font-size:20px}
+
+/* Text-Unterseiten: Impressum, Datenschutz */
+.textseite{padding:64px 0 92px}
+.textseite .wrap{max-width:760px}
+.textseite h1{font-size:clamp(38px, 5vw, 56px);margin-bottom:16px}
+.textseite h2{font-size:24px;margin:28px 0 6px}
+.textseite p{color:var(--flasche-leise)}
+@media (max-width: 900px){.textseite{padding:40px 0 60px}}

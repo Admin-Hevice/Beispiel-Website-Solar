@@ -51,3 +51,42 @@ Die Labels („Beispiel · Basic-Paket“) entstehen aus `paket` plus den vorhan
 - `npm run lint`, `npm run build`, `npm run check` grün (keine Konsolenfehler, kein Overflow, Hinweis-Balken und noindex vorhanden)
 - Lighthouse (Mobil und Desktop): Performance 100, Barrierefreiheit 100, Best Practices 100; SEO 66 nur wegen des gewollten `noindex`
 - 375 / 768 / 1440 px ohne horizontalen Scroll; Ankerlinks, Burger-Menü, Formular-Validierung, Cookie-Hinweis getestet
+
+---
+
+# Beispielseite „Kante“ (Standard-Paket)
+
+Fiktiver Barbershop, Demo für das **Standard-Paket**: 5 Unterseiten (`/`, `leistungen/`, `galerie/`, `team/`, `termin/`) plus `impressum/` und `datenschutz/`.
+Statisches HTML/CSS/JS, lokale Schriften (Limelight, Bodoni Moda, Karla, OFL), keine Animationen, keine externen Ressourcen. Details und Abweichungen von der Vorlage: `TODO.md`.
+
+| Pfad | Zweck |
+|---|---|
+| `beispiele/kante/` | Die Seiten inkl. `beispiel.json` (`"paket": "Standard"`) |
+| `public/beispiele/kante/desktop.webp`, `mobile.webp` | Screenshots (1440×900 / 390×844) |
+
+## Einbinden ins HeViCe-Projekt
+
+`src/content/hero.ts`, passende Branche:
+
+```ts
+beispiel: {
+  slug: "kante",
+  paket: "Standard",
+  titel: "Kante Barbershop",
+  alt: "Beispiel-Entwurf „Kante“: Startseite eines fiktiven Barbershops",
+},
+```
+
+`src/content/projekte.ts`, Eintrag am Ende von `projekte`:
+
+```ts
+{
+  slug: "kante",
+  paket: "Standard",
+  titel: "Kante Barbershop",
+  branche: "Barbershop",
+  beschreibung:
+    "Ein Auftritt mit Charakter für einen Barbershop: Fliesenwand, Preistafeln, Galerie und Terminanfrage auf fünf Seiten.",
+  highlights: ["Preistafeln", "Galerie mit Großansicht", "Terminanfrage"],
+},
+```
